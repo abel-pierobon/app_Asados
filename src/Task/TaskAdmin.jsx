@@ -1,27 +1,21 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, Button, FlatList, Alert } from "react-native";
+import React, { useContext, useState } from "react";
+import { StyleSheet, Text, View, Button, Alert } from "react-native";
 import Name from "./Name";
 import ListName from "./ListName";
 import ListTask from "./ListTask";
 import AsignedTask from "./AsignedTask";
 import Task from "./Task";
+import { Context } from "../Contex";
+
 
 const TaskAdmin = () => {
-    const [name, setName] = useState("");
-    const [list, setList] = useState([]);
+    const {name,list,setList,handleAddList,handleChangeInput}=useContext(Context)
+
     const [task, setTask] = useState("");
     const [listTask, setListTask] = useState([]);
     const [assignedTasks, setAssignedTasks] = useState([]);
 
-    const handleChangeInput = (text) => setName(text);
     const handleChangeInputTask = (text) => setTask(text);
-
-    const handleAddList = () => {
-        if (name.trim() !== "") {
-            setList([...list, { id: Math.random().toString(), value: name }]);
-            setName("");
-        }
-    };
 
     const handleAddListTask = () => {
         if (task.trim() !== "") {
@@ -65,11 +59,6 @@ const TaskAdmin = () => {
 
     return (
         <View style={styles.container}>
-            <Name
-                handleChangeInput={handleChangeInput}
-                handleAddList={handleAddList}
-                name={name}
-            />
             <Task
                 handleChangeInputTask={handleChangeInputTask}
                 handleAddListTask={handleAddListTask}
@@ -104,7 +93,9 @@ const TaskAdmin = () => {
                             <Button
                                 title="Limpiar pantalla"
                                 onPress={clearTask}
+                                
                             />
+                            
                         </View>
                     </View>
                 ) : (

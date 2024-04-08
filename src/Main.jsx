@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import TaskAdmin from "./Task/TaskAdmin";
-import PaidAdmin from "./Paid/PaidAdmin";
 import {ContextProvider} from './Contex'
+import Login from "./Login/Login";
+import NuevoEvento from "./eventos/NuevoEvento";
+import FirstViews from "./FirstViews";
 const Main = () => {
     return (
         <ContextProvider>
@@ -11,8 +12,7 @@ const Main = () => {
                     {" "}
                     GESTOR DE ASADOS
                 </Text>
-                <PaidAdmin />
-                <TaskAdmin />
+                <FirstViews />
             </View>
         </ContextProvider>
     );

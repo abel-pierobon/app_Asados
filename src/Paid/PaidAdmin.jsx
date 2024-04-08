@@ -1,10 +1,27 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View,FlatList } from "react-native";
+import React, { useContext } from "react";
+
+import { Context } from "../Contex";
+
 
 const PaidAdmin = () => {
+    const {list}=useContext(Context)
     return (
         <View style={styles.container}>
-            <Text>PaidAdmin</Text>
+            {/* {list.length >0 ? (
+                <FlatList 
+                data={list}
+                keyExtractor={(id) => id.toString()}
+                renderItem={({ item }) => (
+                    <Text style={{ textTransform: "uppercase" }}>
+                        {item.value}
+                    </Text>
+                )}
+            />
+            ):(
+                <Text> sin participantes</Text>
+            )} */}
+            
         </View>
     );
 };

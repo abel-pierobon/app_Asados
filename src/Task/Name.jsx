@@ -1,16 +1,20 @@
 import { StyleSheet, Text, View,TextInput,Button } from "react-native";
-import React from "react";
+import React, { useState,useEffect, useContext } from "react";
+import { Context } from "../Contex";
 
-const Name = ({handleChangeInput,handleAddList,name}) => {
+
+const Name = ({}) => {
+    const {handleChangeInput,handleAddList,name}=useContext(Context)
+    
     return (
         <View style={styles.textContainer}>
                 <TextInput
                     style={styles.textInput}
                     onChangeText={handleChangeInput}
                     value={name}
-                    placeholder="Ingrese un Nombre"
+                    placeholder='ingrese participantes'
                 />
-                <Button title="ADD" color="#2196F3" onPress={()=>handleAddList(name)} />
+                <Button title="+" color="#2196F3" onPress={()=>handleAddList(name)} />
             </View>
     );
 };

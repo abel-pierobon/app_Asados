@@ -1,13 +1,15 @@
 import { StyleSheet, Text, View,FlatList } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../Contex";
 
-const ListName = ({list}) => {
+const ListName = () => {
+    const {list}=useContext(Context)
     return (
         <View style={styles.flat}>
             <Text style={styles.title}> Lista de personas </Text>
             <FlatList
                 data={list}
-                keyExtractor={(name) => name.id.toString()}
+                keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
                     <Text style={{ textTransform: "uppercase" }}>
                         {item.value}
